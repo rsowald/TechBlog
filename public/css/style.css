@@ -4,7 +4,7 @@ header {
     background-image: url('/images/header3.jpg');
     background-size: cover;
     background-color: rgb(168, 209, 250);
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .card {
