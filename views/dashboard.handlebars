@@ -1,0 +1,13 @@
+<div class="row">
+    <h2>Dashboard</h2>
+    <hr>
+    <h3>Welcome, {{user.name}}</h3>
+    {{#each user.posts as |post|}}
+
+    <a href="/{{post.id}}" class="btn btn-block btn-info d-flex justify-content-between">
+        <span>{{post.title}}</span>
+        <span>{{formatDate post.date_created}}</span>
+    </a>
+
+    {{/each}}
+</div>

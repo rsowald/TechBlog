@@ -21,8 +21,8 @@ const newPostFormHandler = async (event) => {
     }
 };
 
-//need to move to a post.js
-const updateFormHandler = async (event) => {
+
+const updateButtonHandler = async (event) => {
     event.preventDefault();
 
     const title = document.querySelector('#post-title').value.trim();
@@ -47,7 +47,7 @@ const updateFormHandler = async (event) => {
     }
 };
 
-//need to move to a post.js
+
 const delButtonHandler = async (event) => {
     if (event.target.hasAttribute('del-id')) {
         const id = event.target.getAttribute('del-id');
