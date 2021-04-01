@@ -8,16 +8,22 @@
     </div>
 </div>
 
-{{#each post.comments as |comment|}}
-{{comment.content}} on {{comment.date_created}} by {{comment.user.name}}
-{{/each}}
+<div class="card ml-5">
+    <h4 class="card-header bg-info text-white">Comments</h4>
+    <div class="card-body">
+        {{#each post.comments as |comment|}}
+        <p>{{comment.content}} - {{comment.user.name}}, {{formatDate comment.date_created}}</p>
+
+        {{/each}}
+    </div>
+</div>
 
 <div class="card">
     <h4 class="card-header bg-info"></h4>
     <div class="card-body">
         <form id="new-comment-form" post-id="{{post.id}}">
             <div class="form-group">
-                <label for="comment">Comment</label>
+                <label for="comment">New Comment</label>
                 <textarea class="form-control" id="comment" required></textarea>
             </div>
 
