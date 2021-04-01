@@ -18,7 +18,7 @@ const postData = [
         "content": "ORM stands for object relational mapper. It uses models to organize and access data. As a code-first model, you can write a database by writing the structure, then the ORM will create the tables and keys for you. It also abstracts database queries so that you don't have to write your own queries in a specific database language. It can really simplify the way you create queries in SQL!",
         "date_created": "03/29/2021",
         "user_id": 4
-    }
+    },
     {
         "title": "I am skeptical",
         "content": "I am never sure something will work until I test it out multiples times. Even then, I am sometimes surprised to find it working.",
