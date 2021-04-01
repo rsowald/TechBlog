@@ -17,7 +17,7 @@ const hbs = exphbs.create({ helpers });
 
 //define what session will look like. 
 const sess = {
-    secret: ALotOfCopyAndPaste,
+    secret: process.env.SESSION_SECRET,
     cookie: {},
     resave: false,
     saveUninitialized: true,
