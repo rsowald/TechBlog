@@ -19,6 +19,12 @@ const postData = [
         "date_created": "03/29/2021",
         "user_id": 4
     }
+    {
+        "title": "I am skeptical",
+        "content": "I am never sure something will work until I test it out multiples times. Even then, I am sometimes surprised to find it working.",
+        "date_created": "03/31/2021",
+        "user_id": 4
+    },
 ]
 
 const seedPost = () => Post.bulkCreate(postData);
