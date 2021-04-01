@@ -2,14 +2,40 @@
     <h2>Dashboard</h2>
     <hr>
     <h3>Welcome, {{user.name}}</h3>
-    {{#each user.posts as |post|}}
+</div>
 
-    <a href="/{{post.id}}" class="btn btn-block btn-info d-flex justify-content-between">
-        <span>{{post.title}}</span>
-        <span>{{formatDate post.date_created}}</span>
-    </a>
+<div class="row">
+    <div class="col-sm-12">
+        {{#each user.posts as |post|}}
 
-    {{/each}}
+        <div class="card d-none">
+            <h4 class="card-header bg-info text-white">
+                Edit Post
+            </h4>
+            <div class="card-body">
+                <form class="mb-2">
+                    <div class="form-group">
+                        <label for="post-title">Title</label>
+                        <input type="text" class="form-control" id="post-title" value="{{post.title}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="post-content">Content</label>
+                        <textarea class="form-control" id="post-content">{{post.content}}</textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-info">Update Post</button>
+                    <button type="button" class="btn btn-info">Delete</button>
+                </form>
+            </div>
+        </div>
+
+        <button class="showPost btn btn-block btn-info d-flex justify-content-between">
+            <span>{{post.title}}</span>
+            <span>{{formatDate post.date_created}}</span>
+        </button>
+
+        {{/each}}
+    </div>
 </div>
 
 <div class="card d-none" id="new-post-form">

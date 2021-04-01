@@ -80,3 +80,7 @@ document
 $('#newPost').click(() => {
     $('#new-post-form').removeClass('d-none');
 });
+
+$('.showPost').click(e => {
+    $(e.currentTarget).prev().removeClass('d-none');
+});
