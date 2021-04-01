@@ -46,24 +46,25 @@ const updateButtonHandler = async (event) => {
 
 
 const delButtonHandler = async (event) => {
-    if (event.target.hasAttribute('del-id')) {
-        const id = event.target.getAttribute('del-id');
+    const form = $(event.currentTarget).closest('form');
+    const id = form.attr('post-id');
 
-        const response = await fetch(`/api/projects/${id}`, {
-            method: 'DELETE',
-        });
+    const response = await fetch(`/api/posts/${id}`, {
+        method: 'DELETE',
+    });
 
-        if (response.ok) {
-            document.location.replace('/dashboard');
-        } else {
-            alert('Failed to delete post');
-        }
+    if (response.ok) {
+        document.location.replace('/dashboard');
+    } else {
+        alert('Failed to delete post');
     }
 };
 
 $('#new-post-form form').on('submit', newPostFormHandler);
 
 $('.updatePost').on('click', updateButtonHandler);
+
+$('.deletePost').on('click', delButtonHandler);
 
 $('#newPost').click(() => {
     $('#new-post-form').removeClass('d-none');
