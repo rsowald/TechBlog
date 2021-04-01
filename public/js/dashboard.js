@@ -1,3 +1,4 @@
+
 const newPostFormHandler = async (event) => {
     event.preventDefault();
 
@@ -64,14 +65,18 @@ const delButtonHandler = async (event) => {
     }
 };
 
-document
-    .querySelector('.new-post-form')
-    .addEventListener('submit', newPostFormHandler);
+// document
+//     .querySelector('#new-post-form')
+//     .addEventListener('submit', newPostFormHandler);
 
-document
-    .querySelector('.post-list')
-    .addEventListener('click', delButtonHandler);
+// document
+//     .querySelector('.post-list')
+//     .addEventListener('click', delButtonHandler);
 
-document
-    .querySelector('.post-list')
-    .addEventListener('click', updateButtonHandler);
+// document
+//     .querySelector('.post-list')
+//     .addEventListener('click', updateButtonHandler);
+
+$('#newPost').click(() => {
+    $('#new-post-form').removeClass('d-none');
+});
