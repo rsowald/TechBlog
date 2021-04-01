@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
                     model: User,
                     attributes: ['name'],
                 },
-            ],
+            ]
         });
 
         // Serialize data so the template can read it
@@ -20,6 +20,38 @@ router.get('/', async (req, res) => {
         // Pass serialized data and session flag into template
         res.render('homepage', {
             posts,
+            logged_in: req.session.logged_in
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.get('/post/:id', async (req, res) => {
+    try {
+        // Get all posts and JOIN with comments data
+        const postData = await Post.findByPk(req.params.id, {
+            include: [
+                {
+                    model: Comment,
+                    include: [
+                        {
+                            model: User
+                        }
+                    ]
+                },
+                {
+                    model: User
+                }
+            ]
+        });
+
+        // Serialize data so the template can read it
+        const post = postData.get({ plain: true });
+
+        // Pass serialized data and session flag into template
+        res.render('post', {
+            post,
             logged_in: req.session.logged_in
         });
     } catch (err) {
