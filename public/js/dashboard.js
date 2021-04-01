@@ -24,27 +24,23 @@ const newPostFormHandler = async (event) => {
 
 
 const updateButtonHandler = async (event) => {
-    event.preventDefault();
+    const form = $(event.currentTarget).closest('form');
+    const title = form.find('.post-title').val().trim();
+    const content = form.find('.post-content').val().trim();
+    const id = form.attr('post-id');
 
-    const title = document.querySelector('#post-title').value.trim();
-    const content = document.querySelector('#post-content').value.trim();
+    const response = await fetch(`/api/posts/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({ title, content }),
+        headers: {
+            'Content-type': 'application/json',
+        },
+    });
 
-    if (event.target.hasAttribute('update-id')) {
-        const id = event.target.getAttribute('update-id');
-
-        const response = await fetch(`/api/projects/${id}`, {
-            method: 'PUT',
-            body: JSON.stringify({ title, content }),
-            headers: {
-                'Content-type': 'application/json',
-            },
-        });
-
-        if (response.ok) {
-            document.location.replace('/dashboard');
-        } else {
-            alert('Failed to update post');
-        }
+    if (response.ok) {
+        document.location.replace('/dashboard');
+    } else {
+        alert('Failed to update post');
     }
 };
 
@@ -65,17 +61,9 @@ const delButtonHandler = async (event) => {
     }
 };
 
-document
-    .querySelector('#new-post-form')
-    .addEventListener('submit', newPostFormHandler);
+$('#new-post-form form').on('submit', newPostFormHandler);
 
-// document
-//     .querySelector('.post-list')
-//     .addEventListener('click', delButtonHandler);
-
-// document
-//     .querySelector('.post-list')
-//     .addEventListener('click', updateButtonHandler);
+$('.updatePost').on('click', updateButtonHandler);
 
 $('#newPost').click(() => {
     $('#new-post-form').removeClass('d-none');
