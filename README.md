@@ -3,7 +3,7 @@
   ![License](https://img.shields.io/badge/license-APACHE2.0-green.svg)
   
   ## Description
-  [Deployed application](something@heroku.com)
+  [Deployed application](https://rhubarb-cobbler-10166.herokuapp.com/)
   
   This is a full stack blogging application similar to WordPress. A user can view posts from other users on the home page, and, if signed in, they can 1) view, edit, or delete their own posts, and 2) comment on other users' posts. The app uses an Express server, Sequelize database model, and Sequelize session store to persist a login state. The server and database are deployed to Heroku, so this is a fully functional application from front to back end.
   
@@ -21,16 +21,33 @@
   Run npm i
   
   ## Usage
-  1. Visit the homepage at
-  1. Create a new account
-  1. Navigate to the dashboard to make new posts
-  1. View all blog posts on the home page
-  1. Read all comments and leave your own by clicking on individual blog posts from the home page
-  1. Update or delete your own posts from the dashboard
-  1. Logout when you are done
+  1. Visit the homepage at https://rhubarb-cobbler-10166.herokuapp.com/
+
+  ![application image](./public/images/homepage_unlogged.jpg)
   
-  ![application image](local)
-![application image](sources)
+  2. Create a new account
+
+![application image](./public/images/login.jpg)
+
+  3. Navigate to the dashboard to make new posts
+
+  ![application image](./public/images/dashboard.jpg)
+  ![application image](./public/images/new_post.jpg)
+
+  4. View all blog posts on the home page
+
+  5. Read all comments and leave your own by clicking on individual blog posts from the home page
+
+  ![application image](./public/images/comment.jpg)
+
+  6. Update or delete your own posts from the dashboard
+
+  ![application image](./public/images/edit_post.jpg)
+
+  7. Logout when you are done
+  
+  
+
   
   ## License
   [APACHE 2.0 License](https://choosealicense.com/licenses/apache-2.0/)
